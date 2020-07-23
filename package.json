@@ -1,0 +1,43 @@
+{
+  "name": "grpcserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "grpc:start": "ts-node-dev ./grpcServer/server.ts",
+    "grpc:debug": "NODE_ENV=development ts-node-dev --inspect --respawn ./grpcServer/server.ts",
+    "grpc:mon": "nodemon --watch *.proto --exec ./gen.sh",
+    "graphql:start": "ts-node-dev ./graphql/graphQLServer.ts",
+    "graphql:generate:ts": "graphql-codegen --config codegengraphql.yml"
+  },
+  "author": "Patrick Desjardins <mrdesjardins@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-codegen/add": "^1.17.0",
+    "@graphql-codegen/cli": "^1.17.0",
+    "@graphql-codegen/typescript": "^1.17.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
+    "@graphql-codegen/typescript-resolvers": "^1.17.0",
+    "@graphql-tools/load-files": "^6.0.14",
+    "@graphql-tools/merge": "^6.0.14",
+    "@types/express": "^4.17.7",
+    "@types/graphql": "^14.5.0",
+    "apollo-server": "^2.15.1",
+    "apollo-server-core": "^2.15.1",
+    "apollo-server-express": "^2.15.1",
+    "dataloader": "^2.0.0",
+    "express": "^4.17.1",
+    "google-protobuf": "^3.12.2",
+    "graphql": "^15.3.0",
+    "grpc": "^1.24.3",
+    "grpc-tools": "^1.9.0",
+    "grpc_tools_node_protoc_ts": "^4.1.0",
+    "merge-graphql-schemas": "^1.7.8",
+    "ts-node-dev": "^1.0.0-pre.50",
+    "typescript": "^3.9.6"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.7.2",
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,17 @@
+type Query {
+  houses(ids: [Int!]!): [House!]!
+}
+
+type House {
+  id: Int!
+  squarefeet: Int!
+  numberOfBedrooms: Int!
+  onSale: Boolean!
+  isRental: Boolean # No exclamation point
+  Owner: Person!
+  address: HouseAddress!
+}
+type HouseAddress {
+  streetname: String
+  housenumber: String
+}

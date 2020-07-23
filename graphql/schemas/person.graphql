@@ -1,0 +1,11 @@
+type Query {
+  people(ids: [Int!]!): [Person!] # No exclamation point here
+}
+
+type Person {
+  id: Int!
+  firstname: String!
+  lastname: String!
+  fullname: String!
+  houses: [House]
+}

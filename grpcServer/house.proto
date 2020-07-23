@@ -1,0 +1,43 @@
+syntax = "proto3";
+import "google/protobuf/wrappers.proto";
+package houseservice;
+
+service HouseService {
+  rpc GetHousesBySize(HousesBySizeRequest) returns (HousesBySizeResponse) {}
+  rpc GetHouse(HouseRequest) returns (HouseResponse) {}
+  rpc GetHouses(HousesRequest) returns (HousesResponse) {}
+}
+
+message HousesBySizeRequest {
+  int32 minsquarefeet = 1;
+}
+message HousesBySizeResponse {
+  repeated int32 ids = 1;
+}
+message HouseRequest {
+  int32 id = 1;
+}
+message HouseResponse {
+  House house = 1;
+}
+message HousesRequest {
+  repeated int32 id = 1;
+}
+message HousesResponse {
+  repeated House houses = 1;
+}
+
+message House {
+  google.protobuf.Int32Value id = 1;
+  google.protobuf.Int32Value squarefeet = 2;
+  google.protobuf.Int32Value numberOfBedrooms = 3;
+  google.protobuf.BoolValue onSale = 4;
+  google.protobuf.BoolValue isRental = 5;
+  google.protobuf.Int32Value ownerId = 6;
+  HouseAddress address = 7;
+}
+
+message HouseAddress {
+  google.protobuf.StringValue streetname = 1;
+  google.protobuf.StringValue housenumber = 2;
+}
